@@ -79,25 +79,26 @@ export default function BalanceChart() {
 
   return (
     <div
-      className={`p-6 rounded-lg shadow-lg transition-colors ${
+      className={`p-3 sm:p-6 rounded-lg shadow-lg transition-colors ${
         darkMode
           ? "bg-gray-800 border border-gray-700"
           : "bg-white border border-gray-200"
       }`}
     >
-      <h2 className="text-xl font-bold mb-6">Financial Overview</h2>
+      <h2 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Financial Overview</h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-8">
         {/* Bar Chart: Income vs Expenses */}
         <div className="flex flex-col items-center">
-          <h3 className="text-lg font-semibold mb-4">Income vs Expenses</h3>
-          <ResponsiveContainer width="100%" height={300}>
+          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Income vs Expenses</h3>
+          <ResponsiveContainer width="100%" height={250}>
             <BarChart data={barData}>
               <XAxis
                 dataKey="name"
                 stroke={darkMode ? "#9CA3AF" : "#6B7280"}
+                tick={{ fontSize: 12 }}
               />
-              <YAxis stroke={darkMode ? "#9CA3AF" : "#6B7280"} />
+              <YAxis stroke={darkMode ? "#9CA3AF" : "#6B7280"} tick={{ fontSize: 12 }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: darkMode ? "#1F2937" : "#FFFFFF",
@@ -117,9 +118,9 @@ export default function BalanceChart() {
 
         {/* Pie Chart: Spending by Category */}
         <div className="flex flex-col items-center">
-          <h3 className="text-lg font-semibold mb-4">Spending by Category</h3>
+          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Spending by Category</h3>
           {pieData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie
                   data={pieData}
@@ -129,7 +130,7 @@ export default function BalanceChart() {
                   label={({ name, value }) =>
                     `${name}: ₹${(value / 1000).toFixed(1)}k`
                   }
-                  outerRadius={80}
+                  outerRadius={60}
                   fill="#8884d8"
                   dataKey="value"
                 >
@@ -151,7 +152,7 @@ export default function BalanceChart() {
               </PieChart>
             </ResponsiveContainer>
           ) : (
-            <div className="text-center text-gray-500 h-[300px] flex items-center justify-center">
+            <div className="text-center text-gray-500 h-[250px] flex items-center justify-center">
               No expense data available
             </div>
           )}
@@ -159,21 +160,22 @@ export default function BalanceChart() {
       </div>
 
       {/* Bottom Row: Monthly Calendar & Yearly Tracking */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-8">
         {/* Monthly Calendar */}
         <MonthlyCalendar />
 
         {/* Yearly Tracking */}
         <div className="flex flex-col items-center">
-          <h3 className="text-lg font-semibold mb-4">📊 Yearly Tracking</h3>
+          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">📊 Yearly Tracking</h3>
           {yearlyData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250}>
               <BarChart data={yearlyData}>
                 <XAxis
                   dataKey="year"
                   stroke={darkMode ? "#9CA3AF" : "#6B7280"}
+                  tick={{ fontSize: 12 }}
                 />
-                <YAxis stroke={darkMode ? "#9CA3AF" : "#6B7280"} />
+                <YAxis stroke={darkMode ? "#9CA3AF" : "#6B7280"} tick={{ fontSize: 12 }} />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: darkMode ? "#1F2937" : "#FFFFFF",
@@ -188,7 +190,7 @@ export default function BalanceChart() {
               </BarChart>
             </ResponsiveContainer>
           ) : (
-            <div className="text-center text-gray-500 h-[300px] flex items-center justify-center">
+            <div className="text-center text-gray-500 h-[250px] flex items-center justify-center">
               No yearly data available
             </div>
           )}
@@ -196,18 +198,18 @@ export default function BalanceChart() {
       </div>
 
       {/* Summary Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-gray-300 dark:border-gray-600">
-        <div className="text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">Total Income</p>
-          <p className="text-2xl font-bold text-green-600">₹ {income.toLocaleString()}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-gray-300 dark:border-gray-600">
+        <div className="text-center p-2 sm:p-0">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Total Income</p>
+          <p className="text-lg sm:text-2xl font-bold text-green-600">₹ {income.toLocaleString()}</p>
         </div>
-        <div className="text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">Total Expenses</p>
-          <p className="text-2xl font-bold text-red-600">₹ {expense.toLocaleString()}</p>
+        <div className="text-center p-2 sm:p-0">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Total Expenses</p>
+          <p className="text-lg sm:text-2xl font-bold text-red-600">₹ {expense.toLocaleString()}</p>
         </div>
-        <div className="text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">Balance</p>
-          <p className={`text-2xl font-bold ${income - expense >= 0 ? "text-green-600" : "text-red-600"}`}>
+        <div className="text-center p-2 sm:p-0">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Balance</p>
+          <p className={`text-lg sm:text-2xl font-bold ${income - expense >= 0 ? "text-green-600" : "text-red-600"}`}>
             ₹ {(income - expense).toLocaleString()}
           </p>
         </div>

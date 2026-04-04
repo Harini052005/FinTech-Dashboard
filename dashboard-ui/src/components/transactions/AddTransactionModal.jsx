@@ -63,22 +63,22 @@ export default function AddTransactionModal({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition duration-300 z-50"
+      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition duration-300 z-50 p-4"
       onClick={onClose}
     >
       <div
-        className={`p-6 rounded-lg w-[90%] md:w-[450px] shadow-2xl transition-colors ${
+        className={`p-4 sm:p-6 rounded-lg w-full sm:w-[90%] md:w-[450px] shadow-2xl transition-colors ${
           darkMode
             ? "bg-gray-800 text-white border border-gray-700"
             : "bg-white text-gray-900"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Add Transaction</h2>
+        <div className="flex justify-between items-center mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold">Add Transaction</h2>
           <button
             onClick={onClose}
-            className={`p-1 rounded transition ${
+            className={`p-1 rounded transition hover:scale-110 ${
               darkMode
                 ? "hover:bg-gray-700 text-gray-400"
                 : "hover:bg-gray-100 text-gray-500"
@@ -88,10 +88,10 @@ export default function AddTransactionModal({ isOpen, onClose }) {
           </button>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <input
             type="date"
-            className={`border p-3 w-full rounded-lg transition ${
+            className={`border p-2 sm:p-3 w-full rounded-lg transition hover:shadow-md focus:shadow-lg ${
               darkMode
                 ? "bg-gray-700 border-gray-600 text-white focus:border-blue-500"
                 : "bg-white border-gray-300 text-gray-900 focus:border-blue-500"
@@ -103,7 +103,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
           <input
             type="number"
             placeholder="Amount"
-            className={`border p-3 w-full rounded-lg transition ${
+            className={`border p-2 sm:p-3 w-full rounded-lg transition hover:shadow-md focus:shadow-lg ${
               darkMode
                 ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500"
                 : "bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500"
@@ -113,7 +113,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
           />
 
           <select
-            className={`border p-3 w-full rounded-lg transition ${
+            className={`border p-2 sm:p-3 w-full rounded-lg transition hover:shadow-md focus:shadow-lg ${
               darkMode
                 ? "bg-gray-700 border-gray-600 text-white focus:border-blue-500"
                 : "bg-white border-gray-300 text-gray-900 focus:border-blue-500"
@@ -134,7 +134,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
             <input
               type="text"
               placeholder="Enter custom category"
-              className={`border p-3 w-full rounded-lg transition ${
+              className={`border p-2 sm:p-3 w-full rounded-lg transition hover:shadow-md focus:shadow-lg ${
                 darkMode
                   ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500"
                   : "bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500"
@@ -145,7 +145,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
           )}
 
           <select
-            className={`border p-3 w-full rounded-lg transition ${
+            className={`border p-2 sm:p-3 w-full rounded-lg transition hover:shadow-md focus:shadow-lg ${
               darkMode
                 ? "bg-gray-700 border-gray-600 text-white focus:border-blue-500"
                 : "bg-white border-gray-300 text-gray-900 focus:border-blue-500"
@@ -158,10 +158,10 @@ export default function AddTransactionModal({ isOpen, onClose }) {
           </select>
         </div>
 
-        <div className="flex justify-end gap-3 mt-6">
+        <div className="flex flex-col-reverse sm:flex-row justify-end gap-2 sm:gap-3 mt-4 sm:mt-6">
           <button
             onClick={onClose}
-            className={`px-4 py-2 rounded-lg transition ${
+            className={`px-3 sm:px-4 py-2 rounded-lg transition hover:shadow-md transform hover:scale-105 ${
               darkMode
                 ? "bg-gray-700 hover:bg-gray-600 text-white"
                 : "bg-gray-200 hover:bg-gray-300 text-gray-900"
@@ -172,7 +172,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
 
           <button
             onClick={handleSubmit}
-            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg transition shadow-md"
+            className="px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg transition shadow-md hover:shadow-lg transform hover:scale-105"
           >
             Add Transaction
           </button>
