@@ -16,7 +16,7 @@ export default function Navbar() {
     >
       <div className="flex items-center gap-2 w-full sm:w-auto">
         <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent truncate">
-          💰 Finance Dashboard
+          Finance Dashboard
         </h1>
       </div>
 
