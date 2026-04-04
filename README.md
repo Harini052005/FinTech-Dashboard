@@ -336,28 +336,6 @@ npm run build:css
 - Check browser console for errors
 - Verify Zustand store initialization
 
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-
-- Open an issue on GitHub
-- Check existing issues for solutions
-- Review the documentation above
-
 ## 🎓 Learning Resources
 
 - [React Documentation](https://react.dev)
